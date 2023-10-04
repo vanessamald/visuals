@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, ImageBackground, Stylesheet, SafeAreaView } from 'react-native';
 import Home from './Components/screens/Home';
 import Login from './Components/auth/Login';
+import Register from './Components/auth/Register';
 
 export default function App() {
   return (
@@ -8,7 +9,7 @@ export default function App() {
         source={require('./assets/images/background.png')}
         style={styles.backgroundImage}
       >
-      <Login/>
+      <Register/>
     </ImageBackground>
   );
 }

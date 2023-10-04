@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
       backgroundColor: 'transparent',
       alignItems: 'center',
       justifyContent: 'center',
-      marginTop: 80
+      marginTop: 100
     }
 })
 

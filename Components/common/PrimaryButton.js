@@ -25,14 +25,13 @@ const styles= StyleSheet.create({
     },
     buttonInnerContainer: {
         backgroundColor: 'gray',
-        paddingVertical: 8,
+        paddingVertical: 12,
         paddingHorizontal: 80,
         elevation: 2
     },
     buttonText: {
         color: 'white',
         textAlign: 'center'
-
     },
     pressed: {
         opacity: 0.75
