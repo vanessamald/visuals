@@ -1,6 +1,7 @@
 import { View, Text, Pressable, StyleSheet, ImageBackground } from 'react-native';
 import PrimaryButton from '../common/PrimaryButton';
 import { StatusBar } from 'expo-status-bar';
+import NavigationBar from '../navigation/NavigationBar';
 
 function Home ({ navigation }) {
     return (
@@ -13,6 +14,7 @@ function Home ({ navigation }) {
                 <PrimaryButton title='Register' navigation={navigation}/>
                 <StatusBar style="auto" />
             </View>
+            <NavigationBar/>
         </ImageBackground>
     )
 }
