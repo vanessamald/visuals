@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, ImageBackground, Stylesheet, SafeAreaView } fro
 import Home from './Components/screens/Home';
 import Login from './Components/auth/Login';
 import Register from './Components/auth/Register';
+import ResetPassword from './Components/auth/ResetPassword';
 
 export default function App() {
   return (
@@ -9,7 +10,7 @@ export default function App() {
         source={require('./assets/images/background.png')}
         style={styles.backgroundImage}
       >
-      <Register/>
+      <ResetPassword/>
     </ImageBackground>
   );
 }

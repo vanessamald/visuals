@@ -10,26 +10,35 @@ function Register ({}) {
             </View>
             <View style={styles.registerContainer}>
                 <View>
-                    <Text>Name</Text>
-                    <TextInput style={styles.inputContainer}></TextInput>
+                    <Text style={styles.inputTitle}>Name</Text>
+                    <View style={styles.inputContainer}>
+                        <TextInput></TextInput>
+                    </View>
+                    
                 </View>
                 <View>
-                    <Text>Email</Text>
-                    <TextInput style={styles.inputContainer}></TextInput>
+                    <Text style={styles.inputTitle}>Email</Text>
+                    <View style={styles.inputContainer}>
+                        <TextInput></TextInput>
+                    </View>
+                    
                 </View>
                 <View>
-                    <Text>Password</Text>
-                    <TextInput style={styles.inputContainer}></TextInput>
+                    <Text style={styles.inputTitle}>Password</Text>
+                    <View style={styles.inputContainer}>
+                        <TextInput></TextInput>
+                    </View>
                 </View>
                 <View>
-                    <Text>Date of Birth</Text>
-                    <TextInput style={styles.inputContainer}></TextInput>
+                    <Text style={styles.inputTitle}>Date of Birth</Text>
+                    <View style={styles.inputContainer}>
+                        <TextInput></TextInput>
+                    </View>
                 </View>
                 <View style={styles.buttonContainer}>
                     <PrimaryButton title='Sign Up'/>
                 </View>
             </View>
-            
         </View>
     )
 }
@@ -38,7 +47,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginTop: 100,
-        justifyContent: 'space-around',
     },
     title: {
         fontSize: 32,
@@ -47,22 +55,29 @@ const styles = StyleSheet.create({
     },
     registerContainer: {
         backgroundColor: 'white',
-        paddingVertical: 100,
-        paddingHorizontal: 60,
+        paddingVertical: 80,
+        paddingHorizontal: 20,
         borderRadius: 32,
+        marginTop: 10
     },
     buttonContainer: {
         
     },
     loginHere: {
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 100,
     },
     inputContainer: {
         backgroundColor: 'gray',
         opacity: 0.7,
         borderRadius: 8,
-        paddingVertical: 10
+        paddingVertical: 10,
+        marginBottom: 10
     },
+    inputTitle: {
+        fontSize: 14,
+        textTransform: 'uppercase'
+    }
 
     
 })

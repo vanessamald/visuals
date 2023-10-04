@@ -25,7 +25,7 @@ function Login ({}) {
                 <View>
                     <PrimaryButton title='Login'/>
                 </View>
-                <Text>Forgot Password</Text>
+                <Text>Forgot</Text>
             </View>
         </View>
     )
@@ -34,7 +34,7 @@ function Login ({}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 100
+        marginTop: 150
     },
     title: {
         fontSize: 32,
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
         paddingVertical: 80,
         paddingHorizontal: 20,
         borderRadius: 32,
+        marginTop: 10
     },
     emailContainer: {
         
@@ -67,7 +68,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'gray',
         opacity: 0.7,
         borderRadius: 8,
-        paddingVertical: 10
+        paddingVertical: 10,
+        marginBottom: 10
     },
     inputTitle: {
         fontSize: 14,
