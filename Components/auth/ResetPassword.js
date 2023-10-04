@@ -14,6 +14,7 @@ function ResetPassword ({}) {
                 </View>
                 <View>
                     <PrimaryButton title='Reset'/>
+                    <Text>Login Here</Text>
                 </View>
             </View>
             
