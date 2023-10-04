@@ -7,23 +7,20 @@ function Home ({ navigation }) {
         <ImageBackground
             source={require('../../assets/images/background.png')}
             style={styles.backgroundImage}
-      >
-        <View style={styles.container}>
-            <PrimaryButton title='Login' navigation={navigation}/>
-            <PrimaryButton title='Register' navigation={navigation}/>
-            <StatusBar style="auto" />
-        </View>
+        >
+            <View style={styles.container}>
+                <PrimaryButton title='Login' navigation={navigation}/>
+                <PrimaryButton title='Register' navigation={navigation}/>
+                <StatusBar style="auto" />
+            </View>
         </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: 'transparent',
-      alignItems: 'center',
-      justifyContent: 'center',
-      marginTop: 100
+        flex: 1,
+        marginTop: 450
     },
     backgroundImage: {
         flex: 1,

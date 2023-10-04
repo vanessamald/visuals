@@ -1,46 +1,57 @@
 import { View, Text, Pressable, StyleSheet, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
 import PrimaryButton from '../common/PrimaryButton';
+import Background from '../common/Background';
 
 function Login ({ navigation }) {
     const goToRegisterScreen = () => {
         navigation.navigate('Register');
       };
 
+    const goToResetPassword = () => {
+        navigation.navigate('Reset Password');
+    }
+
     return (
-        <View style={styles.container}> 
-            <View style={styles.titleContainer}>
-                <Text style={styles.title}>Login to Existing Account</Text>
-                <Text style={styles.registerHere}>New Here? Register</Text>
-                <TouchableOpacity onPress={goToRegisterScreen}>
-                    <Text>Here</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.loginContainer}>
-                <View style={styles.emailContainer}>
-                    <Text style={styles.inputTitle}>Email</Text>
-                    <View style={styles.inputContainer}>
-                        <TextInput></TextInput>
+        <Background>
+            <View style={styles.container}> 
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>Login to Existing Account</Text>
+                    <Text style={styles.registerHere}>New Here?</Text>
+                    <TouchableOpacity onPress={goToRegisterScreen}>
+                        <Text style={[styles.registerHere, styles.underline]}>Register Here</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.loginContainer}>
+                    <View style={styles.emailContainer}>
+                        <Text style={styles.inputTitle}>Email</Text>
+                        <View style={styles.inputContainer}>
+                            <TextInput></TextInput>
+                        </View>
                     </View>
-                </View>
-                <View style={styles.passwordContainer}>
-                    <Text style={styles.inputTitle}>Password</Text>
-                    <View style={styles.inputContainer}>
-                        <TextInput></TextInput>
+                    <View style={styles.passwordContainer}>
+                        <Text style={styles.inputTitle}>Password</Text>
+                        <View style={styles.inputContainer}>
+                            <TextInput></TextInput>
+                        </View>
                     </View>
+                    <View>
+                        <PrimaryButton title='Login'/>
+                    </View>
+                    <TouchableOpacity onPress={goToResetPassword}>
+                        <Text style={styles.underline}>Forgot Password</Text>
+                    </TouchableOpacity>
+                    
                 </View>
-                <View>
-                    <PrimaryButton title='Login'/>
-                </View>
-                <Text>Forgot</Text>
-            </View>
-        </View>
+            </View> 
+        </Background>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 150
+        backgroundColor: 'transparent',
+        marginTop: 90
     },
     backgroundImage: {
         flex: 1,
@@ -55,7 +66,7 @@ const styles = StyleSheet.create({
     },
     titleContainer: {
         backgroundColor: 'transparent',
-        marginBottom: 100,
+        marginBottom: 50,
     },
     registerHere: {
         textAlign: 'center',
@@ -70,7 +81,7 @@ const styles = StyleSheet.create({
         paddingVertical: 80,
         paddingHorizontal: 20,
         borderRadius: 32,
-        marginTop: 10
+        marginTop: 10,
     },
     emailContainer: {
         
@@ -88,6 +99,9 @@ const styles = StyleSheet.create({
     inputTitle: {
         fontSize: 14,
         textTransform: 'uppercase'
+    },
+    underline: {
+        textDecorationLine: 'underline'
     }
 })
 
