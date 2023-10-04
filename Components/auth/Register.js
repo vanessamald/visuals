@@ -1,12 +1,19 @@
-import { View, Text, Pressable, StyleSheet, ImageBackground, TextInput } from 'react-native';
+import { View, Text, Pressable, StyleSheet, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
 import PrimaryButton from '../common/PrimaryButton';
 
-function Register ({}) {
+function Register ({ navigation }) {
+    const goToLoginScreen = () => {
+        navigation.navigate('Login');
+      };
+
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.titleContainer}>
                 <Text style={styles.title}>Create New Account</Text>
-                <Text style={styles.loginHere}>Already Registered? Log in here</Text>
+                <Text style={styles.loginHere}>Already Registered? Log in</Text>
+                <TouchableOpacity onPress={goToLoginScreen}>
+                    <Text>Here</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.registerContainer}>
                 <View>
@@ -53,6 +60,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         textAlign: 'center',
     },
+    titleContainer: {
+        backgroundColor: 'transparent',
+        marginBottom: 100,
+    },
     registerContainer: {
         backgroundColor: 'white',
         paddingVertical: 80,
@@ -65,7 +76,6 @@ const styles = StyleSheet.create({
     },
     loginHere: {
         textAlign: 'center',
-        marginBottom: 100,
     },
     inputContainer: {
         backgroundColor: 'gray',
