@@ -1,6 +1,6 @@
 import { View, Text, Pressable, StyleSheet, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
-import PrimaryButton from '../common/PrimaryButton';
-import Background from '../common/Background';
+import PrimaryButton from '../Components/common/PrimaryButton';
+import Background from '../Components/common/Background';
 
 function ResetPassword ({ navigation }) {
 

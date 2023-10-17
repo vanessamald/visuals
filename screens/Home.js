@@ -1,12 +1,12 @@
 import { View, Text, Pressable, StyleSheet, ImageBackground } from 'react-native';
-import PrimaryButton from '../common/PrimaryButton';
+import PrimaryButton from '../Components/common/PrimaryButton';
 import { StatusBar } from 'expo-status-bar';
-import NavigationBar from '../navigation/NavigationBar';
+import NavigationBar from '../Components/navigation/NavigationBar';
 
 function Home ({ navigation }) {
     return (
         <ImageBackground
-            source={require('../../assets/images/background.png')}
+            source={require('../assets/images/background.png')}
             style={styles.backgroundImage}
         >
             <View style={styles.container}>
