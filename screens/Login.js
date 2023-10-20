@@ -16,7 +16,6 @@ function Login ({ navigation }) {
                     setShowEmailMessage(true);
                     await emailVerification();
                     await logout();
-
                 }
             }
         } catch (error) {

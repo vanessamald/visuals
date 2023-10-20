@@ -4,7 +4,6 @@ import PrimaryButton from '../Components/common/PrimaryButton';
 import Background from '../Components/common/Background';
 import {login, emailVerification, logout, signup } from '../services/auth';
 import saveUserData from '../services/firebaseDatabase';
-//import { auth } from '@react-native-firebase/auth';
 
 function Register ({ navigation }) {
     const [ email, setEmail ] = useState('');
@@ -29,6 +28,7 @@ function Register ({ navigation }) {
         }
     }
     */
+
     
 
     

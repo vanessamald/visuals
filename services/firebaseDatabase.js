@@ -1,4 +1,4 @@
-import { collection, addDoc } from '@react-native-firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 
 async function saveUserData(userId, firstName, lastName) {
     try {
@@ -18,6 +18,7 @@ async function saveUserData(userId, firstName, lastName) {
       console.log('User data saved with ID: ', docRef.id);
     } catch (error) {
       console.error('Error saving user data: ', error);
+      console.log(error);
       throw error;
     }
   }

@@ -1,9 +1,26 @@
-//import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-//import auth from './config';
-import { getAuth } from 'firebase/auth';
+import { auth } from './config';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+//import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
-const auth = getAuth();
+//const auth = getAuth();
 
+/*
+//import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from '@firebase/auth';
+export const login = async (email, password) => {
+    const auth = getAuth(); // Use getAuth to obtain the auth object
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log("user signed in:", user);
+      return user;
+    } catch (error) {
+      console.log(error.message);
+      throw error;
+    }
+  };
+  */
+
+  
 export const login = async (email, password) => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -16,6 +33,7 @@ export const login = async (email, password) => {
         throw error;
     } 
 };
+
 
 export const emailVerification = async () => {
     const user = auth.currentUser;
@@ -43,15 +61,17 @@ export const signup = async (email, password) => {
         console.log('User registered:', user);
         return user;
     } catch (error) {
+        console.error(error);
         throw error;
     };
 }
 
 
+
 /*
 export const signup = async (email, password) => {
-    auth()
-    .createUserWithEmailAndPassword(email, password)
+    //auth()
+    createUserWithEmailAndPassword(auth, email, password)
     .then(()=> {
         console.log('User account created and signed in!');
     })

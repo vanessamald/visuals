@@ -1,28 +1,28 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import { firebaseConfig } from "./services/config";
 import { StyleSheet, Text, View, ImageBackground, Stylesheet, SafeAreaView } from 'react-native';
 import Home from './screens/Home';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import ResetPassword from './screens/ResetPassword';
+import Profile from './screens/Profile';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-//import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { app, auth } from "./services/config";
 
 import { registerRootComponent } from 'expo';
 import React, { useEffect, useState } from 'react';
 
+
 export default function App() {
 
 const Stack = createNativeStackNavigator();
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+//const auth = getAuth(app);
+
 const [ initializing, setInitializing ] = useState(true);
 const [ user, setUser ] = useState(null);
 
+// handle user state changes
 const onAuthStateChangedHandler = (user) => {
   setUser(user);
   if (initializing) {
@@ -32,6 +32,7 @@ const onAuthStateChangedHandler = (user) => {
 
 useEffect(() =>{
   const unsubscribe = onAuthStateChanged(auth, onAuthStateChangedHandler);
+  console.log('Initializing worked!')
   return unsubscribe;
 }, []);
 
@@ -47,9 +48,10 @@ if (initializing) {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
       {user? (
-        <Stack.Screen name="Home" options={{ headerShown: false }} component={Home}/>
+        <Stack.Screen name="Profile" options={{ headerShown: false }} component={Profile}/>
       ) : (
         <>
+        <Stack.Screen name="Home" options={{ headerShown: false }} component={Profile}/>
         <Stack.Screen name="Login" options={{ headerShown: false }} component={Login}/>
         <Stack.Screen name="Register" options={{ headerShown: false }} component={Register}/>
         <Stack.Screen name="Reset Password" options={{ headerShown: false }} component={ResetPassword}/>
