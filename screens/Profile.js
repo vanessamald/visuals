@@ -11,24 +11,25 @@ function Profile ({ navigation }) {
                 <View style={styles.top}>
                     <View style={styles.profileImage}></View>
                 </View>
+                <View style={styles.center}>
+                    <Text style={styles.text}>Welcome Back!</Text>
+                </View>
+                <View style={styles.bottom}>
+                    <View style={styles.bottomItem}>
+                        <View style={styles.bottomItemInner}></View>
+                    </View>
+                    <View style={styles.bottomItem}>
+                        <View style={styles.bottomItemInner}></View>
+                    </View>
+                    <View style={styles.bottomItem}>
+                        <View style={styles.bottomItemInner}></View>
+                    </View>
+                    <View style={styles.bottomItem}>
+                        <View style={styles.bottomItemInner}></View>
+                    </View>
+                </View>
             </View>
-            
-            <View style={styles.bottom}>
-                <View style={styles.bottomItem}>
-                    <View style={styles.bottomItemInner}></View>
-                </View>
-                <View style={styles.bottomItem}>
-                    <View style={styles.bottomItemInner}></View>
-                </View>
-                <View style={styles.bottomItem}>
-                    <View style={styles.bottomItemInner}></View>
-                </View>
-                <View style={styles.bottomItem}>
-                    <View style={styles.bottomItemInner}></View>
-                </View>
-            </View>
-        </Background>
-        
+        </Background> 
     )
 }
 
@@ -43,7 +44,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     },
     profileImage: {
-        top: 50,
         width: 140,
         height: 140,
         borderRadius: 100,
@@ -52,27 +52,33 @@ const styles = StyleSheet.create({
         backgroundColor: '#eee'
     },
     center: {
-        height: '10%',
-        backgroundColor: '#7fbcac'
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '5%',
+        backgroundColor: 'transparent'
     },
     bottom: {
-        height: '45%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '50%',
         backgroundColor: 'transparent',
         flexDirection: 'row',
         flexWrap: 'wrap'
     },
     bottomItem: {
-        width: '50%',
-        height: '50%',
+        width: '45%',
+        height: '45%',
         padding: 5,
     },
     bottomItemInner: {
         flex: 1,
         backgroundColor: '#292929',
         borderRadius: '25%'
+    },
+    text: {
+        fontSize: 16,
+        textTransform: 'uppercase'
     }
 })
 
 export default Profile;
-
-
