@@ -7,12 +7,22 @@ function NavigationBar ({ navigation }) {
         <View style={styles.container}>
             <View style={styles.content}>
                 <View style={styles.bottomNavigationBar}>
-                    <TouchableOpacity>
-                        <Image
-                            source={require('../ui/icons/usericon.png')}
-                            style={styles.icon}
-                        />
-                    </TouchableOpacity>
+                    <View>
+                        <TouchableOpacity>
+                            <Image
+                                source={require('../ui/icons/usericon.png')}
+                                style={styles.icon}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TouchableOpacity>
+                            <Image
+                                source={require('../ui/icons/messagesicon.png')}
+                                style={styles.icon}
+                            />
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         </View>
@@ -39,7 +49,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#385B4F', 
         height: 50,
-        
       },
 })
 

@@ -16,10 +16,18 @@ function Profile ({ navigation }) {
                 </View>
                 <View style={styles.bottom}>
                     <View style={styles.bottomItem}>
-                        <View style={styles.bottomItemInner}></View>
+                        <View style={styles.bottomItemInner}>
+                            <Pressable>
+                                <Text style={styles.options_text}>New Post</Text>
+                            </Pressable>
+                        </View>
                     </View>
                     <View style={styles.bottomItem}>
-                        <View style={styles.bottomItemInner}></View>
+                        <View style={styles.bottomItemInner}>
+                            <Pressable>
+                                <Text style={styles.options_text} onPress={()=>navigation.navigate('Posts')}>View All</Text>
+                            </Pressable>
+                        </View>
                     </View>
                     <View style={styles.bottomItem}>
                         <View style={styles.bottomItemInner}></View>
@@ -73,11 +81,17 @@ const styles = StyleSheet.create({
     bottomItemInner: {
         flex: 1,
         backgroundColor: '#292929',
-        borderRadius: '25%'
+        borderRadius: '25%',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     text: {
         fontSize: 16,
         textTransform: 'uppercase'
+    },
+    options_text: {
+        fontSize: 20,
+        color: 'white',
     }
 })
 

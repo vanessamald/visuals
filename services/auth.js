@@ -1,11 +1,12 @@
 import { auth } from './config';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword } from 'firebase/auth';
 //import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
 //const auth = getAuth();
 
 /*
 //import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from '@firebase/auth';
+
 export const login = async (email, password) => {
     const auth = getAuth(); // Use getAuth to obtain the auth object
     try {
@@ -53,10 +54,12 @@ export const emailVerification = async () => {
 };
 
 
+
 export const signup = async (email, password) => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        await emailVerification();
+        await sendEmailVerification(auth.currentUser);
+
         const user = userCredential.user;
         console.log('User registered:', user);
         return user;
@@ -65,6 +68,9 @@ export const signup = async (email, password) => {
         throw error;
     };
 }
+
+
+
 
 
 

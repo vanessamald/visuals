@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, Stylesheet, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, SafeAreaView } from 'react-native';
 import Home from './screens/Home';
 import Login from './screens/Login';
 import Register from './screens/Register';
@@ -12,10 +12,10 @@ import { app, auth } from "./services/config";
 
 import { registerRootComponent } from 'expo';
 import React, { useEffect, useState } from 'react';
+import Posts from './screens/Posts';
 
 
 export default function App() {
-
 const Stack = createNativeStackNavigator();
 //const auth = getAuth(app);
 
@@ -51,10 +51,11 @@ if (initializing) {
         <Stack.Screen name="Profile" options={{ headerShown: false }} component={Profile}/>
       ) : (
         <>
-        <Stack.Screen name="Home" options={{ headerShown: false }} component={Profile}/>
+        <Stack.Screen name="Home" options={{ headerShown: false }} component={Home}/>
         <Stack.Screen name="Login" options={{ headerShown: false }} component={Login}/>
         <Stack.Screen name="Register" options={{ headerShown: false }} component={Register}/>
         <Stack.Screen name="Reset Password" options={{ headerShown: false }} component={ResetPassword}/>
+        <Stack.Screen name="Posts" options={{ headerShown: false }} component={Posts}/>
         </>
       )}
       </Stack.Navigator>

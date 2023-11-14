@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Pressable, StyleSheet, ImageBackground, TextInput, TouchableOpacity, Button } from 'react-native';
 import PrimaryButton from '../Components/common/PrimaryButton';
 import Background from '../Components/common/Background';
-import {login, emailVerification, logout, signup } from '../services/auth';
+import {login, emailVerification, logout, signup, onRegisterPress } from '../services/auth';
 import saveUserData from '../services/firebaseDatabase';
 
 function Register ({ navigation }) {
