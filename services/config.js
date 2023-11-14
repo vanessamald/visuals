@@ -27,7 +27,7 @@ const auth = getAuth(app);
 // initialize firestore
 const db = getFirestore(app);
 
-console.log('Firebase initialized with the following configuration:', firebaseConfig);
-console.log('Database URL:', process.env.REACT_APP_databaseURL);
+//console.log('Firebase initialized with the following configuration:', firebaseConfig);
+//console.log('Database URL:', process.env.REACT_APP_databaseURL);
 
 export { db, app, auth };

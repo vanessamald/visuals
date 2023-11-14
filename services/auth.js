@@ -35,6 +35,17 @@ export const login = async (email, password) => {
     } 
 };
 
+export const logout = async () => {
+    try {
+        auth.signOut();
+        console.log('User signed out!');
+    }
+    catch (error) {
+        console.log(error.message);
+        throw error;
+    }
+}
+
 
 export const emailVerification = async () => {
     const user = auth.currentUser;
@@ -52,8 +63,6 @@ export const emailVerification = async () => {
         throw error;
     }
 };
-
-
 
 export const signup = async (email, password) => {
     try {

@@ -3,13 +3,30 @@ import Background from '../Components/common/Background';
 import PrimaryButton from '../Components/common/PrimaryButton';
 import { StatusBar } from 'expo-status-bar';
 import NavigationBar from '../Components/navigation/NavigationBar';
+import {login, emailVerification, logout } from '../services/auth';
 
 function Profile ({ navigation }) {
+
+
+    const handleLogout = async () => {
+        try {
+            await logout();
+
+        } catch (error) {
+            alert('Sign out error:' + error.message);
+        }
+    }
+
     return (
         <Background>
             <View style={styles.container}>
                 <View style={styles.top}>
                     <View style={styles.profileImage}></View>
+                    <View>
+                        <Pressable onPress={handleLogout}>
+                            <Text>Logout</Text>
+                        </Pressable>
+                    </View> 
                 </View>
                 <View style={styles.center}>
                     <Text style={styles.text}>Welcome Back!</Text>

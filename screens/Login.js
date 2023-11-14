@@ -5,6 +5,7 @@ import {login, emailVerification, logout, signup } from '../services/auth';
 import React, { useEffect, useState } from 'react';
 
 function Login ({ navigation }) {
+    const [showEmailMessage, setShowEmailMessage] = useState(false);
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
@@ -27,7 +28,7 @@ function Login ({ navigation }) {
             } else if (error.code === 'auth/too-many-requests') {
                 alert ('Too many unsuccessful login attempts. Please try again later.')
             } else  {
-                alert('Sign in error:', error.message);
+                alert('Sign in error:' + error.message);
             }
         }
     }
