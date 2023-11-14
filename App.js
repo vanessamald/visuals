@@ -44,6 +44,7 @@ if (initializing) {
   )
 }
 
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>

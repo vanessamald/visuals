@@ -13,11 +13,12 @@ function Login ({ navigation }) {
         try {
             const user = await login(email, password);
             if (user) {
-                if (!user.emailVerification) {
-                    setShowEmailMessage(true);
-                    await emailVerification();
-                    await logout();
-                }
+                // email verification
+                //if (!user.emailVerification) {
+                   // setShowEmailMessage(true);
+                   // await emailVerification();
+                   // await logout();
+               // }
             }
         } catch (error) {
             if (
