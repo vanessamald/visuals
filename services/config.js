@@ -1,23 +1,31 @@
-import firebase from 'firebase/app';
+//import firebase from 'firebase/app';
+import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
-//import { getAnalytics } from 'firebase/analytics';
+import { getAnalytics } from 'firebase/analytics';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 const firebaseConfig = {
-    apiKey: String(process.env.REACT_APP_apiKey),
-    authDomain: String(process.env.REACT_APP_authDomain),
-    databaseURL: String(process.env.REACT_APP_databaseURL),
-    projectId: String(process.env.REACT_APP_projectId),
-    storageBucket: String(process.env.REACT_APP_storageBucket),
-    messagingSenderId: String(process.env.REACT_APP_messagingSenderId),
-    appId: String(process.env.REACT_APP_appId),
-    measurementID: String(process.env.REACT_APP_measurementID)
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    databaseURL: process.env.REACT_APP_databaseURL,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId,
+    measurementID: process.env.REACT_APP_measurementID
 }
 
 // initialize firebase
 const app = initializeApp(firebaseConfig);
+
+// initialize the auth module
+//const auth = getAuth(app);
+//const auth = initializeAuth(app, { persistence: 'local', storage: ExpoAsyncStorage });
+const auth = initializeAuth(app, {
+    persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+  });
 
 // initilize analytics
 //const analytics = getAnalytics(app);
@@ -25,19 +33,7 @@ const app = initializeApp(firebaseConfig);
 // initialize firestore
 const db = getFirestore(app);
 
-// initialize the auth module
-const auth = getAuth(app);
-//const auth = getAuth(app, {
-   // persistence: getReactNativePersistence(ReactNativeAsyncStorage)
-//});
-
-const firestore = getFirestore(app);
-const storage = getStorage(app);
-
-if (firebase.apps.length === 0) {
-    firebase.initializeApp(reactNativeFirebaseConfig);
-}
-
-firebase.firestore();
+//console.log('Firebase initialized with the following configuration:', firebaseConfig);
+//console.log('Database URL:', process.env.REACT_APP_databaseURL);
 
 export { db, app, auth };

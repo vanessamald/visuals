@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, Pressable, StyleSheet, ImageBackground, TextInput, TouchableOpacity, Button } from 'react-native';
 import PrimaryButton from '../Components/common/PrimaryButton';
 import Background from '../Components/common/Background';
+<<<<<<< HEAD
 import {login, emailVerification, logout, signup } from '../services/auth';
 import saveUserData from '../services/firebaseDatabase';
 //import { auth } from '@react-native-firebase/auth';
+=======
+import {login, emailVerification, logout, signup, onRegisterPress } from '../services/auth';
+import saveUserData from '../services/firebaseDatabase';
+>>>>>>> server
 
 function Register ({ navigation }) {
     const [ email, setEmail ] = useState('');
@@ -12,6 +17,7 @@ function Register ({ navigation }) {
     const [ lastName, setLastName ] = useState('');
     const [ password, setPassword ] = useState('');
 
+<<<<<<< HEAD
     /*
     const handleRegistration = async () => {
         try {
@@ -35,6 +41,11 @@ function Register ({ navigation }) {
     const handleRegistration = async () => {
         try {
             const user = await signup(email, password);
+=======
+    const handleRegistration = async () => {
+        try {
+            const user = await signup(email, password, firstName, lastName);
+>>>>>>> server
             if (user) {
                 const id = user.id;
                 await saveUserData(id, firstName, lastName);
@@ -50,8 +61,11 @@ function Register ({ navigation }) {
         } 
    }
    
+<<<<<<< HEAD
    
 
+=======
+>>>>>>> server
     const goToLoginScreen = () => {
         navigation.navigate('Login');
       };
@@ -111,7 +125,10 @@ function Register ({ navigation }) {
                                 value={password}
                                 onChangeText={(text)=> setPassword(text)}
                             >
+<<<<<<< HEAD
 
+=======
+>>>>>>> server
                             </TextInput>
                         </View>
                     </View>

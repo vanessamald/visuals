@@ -14,7 +14,6 @@ function Home ({ navigation }) {
                 <PrimaryButton title='Register' navigation={navigation}/>
                 <StatusBar style="auto" />
             </View>
-            <NavigationBar/>
         </ImageBackground>
     )
 }

@@ -1,9 +1,6 @@
-import { getAuth } from 'firebase/auth';
-//import auth from './config';
-//import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-
-const auth = getAuth();
-
+import { auth } from './config';
+import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+ 
 export const login = async (email, password) => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -17,11 +14,22 @@ export const login = async (email, password) => {
     } 
 };
 
+export const logout = async () => {
+    try {
+        auth.signOut();
+        console.log('User signed out!');
+    }
+    catch (error) {
+        console.log(error.message);
+        throw error;
+    }
+}
+
 export const emailVerification = async () => {
     const user = auth.currentUser;
     try {
-        await emailVerification(auth.currentUser, {
-            handleCodeinApp: true,
+        await sendEmailVerification(auth.currentUser, {
+            handleCodeInApp: true,
             url: process.env.REACT_APP_databaseURL,
         }).then(() => {
             showEmailAlert(user.email);
@@ -34,35 +42,34 @@ export const emailVerification = async () => {
     }
 };
 
-
-export const signup = async (email, password) => {
+export const signup = async (email, password, firstName, lastName) => {
     try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        await emailVerification();
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password, firstName, lastName);
+        
+         // Update user's display name
+         await updateProfile(userCredential.user, {
+            displayName: `${firstName} ${lastName}`,
+        });
+        
+        await sendEmailVerification(auth.currentUser);
+
         const user = userCredential.user;
         console.log('User registered:', user);
         return user;
     } catch (error) {
+        console.error(error);
         throw error;
     };
 }
 
-
-/*
-export const signup = async (email, password) => {
-    auth()
-    .createUserWithEmailAndPassword(email, password)
-    .then(()=> {
-        console.log('User account created and signed in!');
-    })
-    .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-            console.log("That email address is already in use");
-        } 
-        if (error.code === 'auth/invalid-email') {
-            console.log('That email address is invalid.');
-        }
-        console.error(error);
-    })
-}
-*/
+export const updateUserPhotoURL = async (newPhotoURL) => {
+    try {
+      // Update the user's photoURL in Firebase Auth
+      await updateProfile(auth.currentUser, { photoURL: newPhotoURL });
+  
+      console.log('User photoURL updated successfully');
+    } catch (error) {
+      console.error('Error updating user photoURL:', error.message);
+      throw error;
+    }
+  };
