@@ -11,30 +11,9 @@ function Register ({ navigation }) {
     const [ lastName, setLastName ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    /*
     const handleRegistration = async () => {
         try {
-            await auth().createUserWithEmailAndPassword(email, password);
-            const user = auth().currentUser;
-
-            // update user
-            if (user) {
-                await user.updateProfile({
-                    displayName: displayName,
-                });
-            }
-        } catch (error) {
-            console.error('Registration Error:', error);
-        }
-    }
-    */
-
-    
-
-    
-    const handleRegistration = async () => {
-        try {
-            const user = await signup(email, password);
+            const user = await signup(email, password, firstName, lastName);
             if (user) {
                 const id = user.id;
                 await saveUserData(id, firstName, lastName);
@@ -50,8 +29,6 @@ function Register ({ navigation }) {
         } 
    }
    
-   
-
     const goToLoginScreen = () => {
         navigation.navigate('Login');
       };
@@ -111,7 +88,6 @@ function Register ({ navigation }) {
                                 value={password}
                                 onChangeText={(text)=> setPassword(text)}
                             >
-
                             </TextInput>
                         </View>
                     </View>

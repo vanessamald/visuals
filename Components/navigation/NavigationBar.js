@@ -31,15 +31,16 @@ function NavigationBar ({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        //flex: 1,
         justifyContent: 'space-between',
+        marginBottom: 20
     },
     icon: {
         width: 48, 
         height: 48,
     },
       content: {
-        flex: 1,
+        //flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },

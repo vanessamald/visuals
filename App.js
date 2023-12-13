@@ -6,26 +6,24 @@ import ResetPassword from './screens/ResetPassword';
 import Profile from './screens/Profile';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 import { onAuthStateChanged } from "firebase/auth";
-import { app, auth } from "./services/config";
-
+import { auth } from "./services/config";
 import { registerRootComponent } from 'expo';
 import React, { useEffect, useState } from 'react';
 import Posts from './screens/Posts';
 
-
 export default function App() {
 const Stack = createNativeStackNavigator();
-//const auth = getAuth(app);
 
 const [ initializing, setInitializing ] = useState(true);
 const [ user, setUser ] = useState(null);
 
 // handle user state changes
 const onAuthStateChangedHandler = (user) => {
+  console.log('onAuthStateChangedHandler - user:', user);
   setUser(user);
   if (initializing) {
+    console.log('onAuthStateChangedHandler - Initializing done.');
     setInitializing(false);
   }
 };
@@ -33,7 +31,7 @@ const onAuthStateChangedHandler = (user) => {
 useEffect(() =>{
   const unsubscribe = onAuthStateChanged(auth, onAuthStateChangedHandler);
   console.log('Initializing worked!')
-  return unsubscribe;
+  return () => unsubscribe();
 }, []);
 
 if (initializing) {
@@ -44,19 +42,35 @@ if (initializing) {
   )
 }
 
+// profile navigator
+function NestedNavigator() {
+  return (
+    <Stack.Navigator>
+      {user ? (
+      <Stack.Screen name="Profile">
+      {(props) => <Profile {...props} user={user} />}
+
+      </Stack.Screen>
+      ) : (
+        <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
+      )}
+      <Stack.Screen name="Posts" component={Posts} />
+    </Stack.Navigator>
+  );
+}
+
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
       {user? (
-        <Stack.Screen name="Profile" options={{ headerShown: false }} component={Profile}/>
+        <Stack.Screen name="NestedNavigator" component={NestedNavigator} options={{ headerShown: false }} />
       ) : (
         <>
         <Stack.Screen name="Home" options={{ headerShown: false }} component={Home}/>
         <Stack.Screen name="Login" options={{ headerShown: false }} component={Login}/>
         <Stack.Screen name="Register" options={{ headerShown: false }} component={Register}/>
         <Stack.Screen name="Reset Password" options={{ headerShown: false }} component={ResetPassword}/>
-        <Stack.Screen name="Posts" options={{ headerShown: false }} component={Posts}/>
         </>
       )}
       </Stack.Navigator>
