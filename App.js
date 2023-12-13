@@ -11,6 +11,7 @@ import { auth } from "./services/config";
 import { registerRootComponent } from 'expo';
 import React, { useEffect, useState } from 'react';
 import Posts from './screens/Posts';
+import NewPost from './screens/NewPost';
 
 export default function App() {
 const Stack = createNativeStackNavigator();
@@ -54,6 +55,7 @@ function NestedNavigator() {
       ) : (
         <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
       )}
+      <Stack.Screen name="NewPost" component={NewPost} />
       <Stack.Screen name="Posts" component={Posts} />
     </Stack.Navigator>
   );

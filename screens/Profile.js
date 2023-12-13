@@ -6,60 +6,17 @@ import { StatusBar } from 'expo-status-bar';
 import NavigationBar from '../Components/navigation/NavigationBar';
 import { logout, updateUserPhotoURL } from '../services/auth';
 import * as ImagePicker from 'expo-image-picker';
-import { auth } from '../services/auth';
 
 function Profile ({ navigation, user }) {
-    const [ profileImage, setProfileImage ] = useState(null);
-    const [displayName, setDisplayName ] = useState('');
+    //const [ profileImage, setProfileImage ] = useState(null);
+    //const [displayName, setDisplayName ] = useState('');
     const [ photoURL, setPhotoURL ] = useState('');
     const [ loading, setLoading ] = useState(true);
-
 
     useEffect(() => {
         // Log the userName value to the console
         console.log('userName:', user.displayName);
       }, [user]);
-
-      /*
-    useEffect(() => {
-        const fetchUserData = async () => {
-          try {
-            if (auth && auth.currentUser) {
-              const currentUser = auth.currentUser;
-              setDisplayName(currentUser.displayName);
-              setPhotoURL(currentUser.photoURL);
-            } else {
-              // Auth object or currentUser is not available
-              console.error('Authentication object or currentUser not available.');
-            }
-          } catch (error) {
-            console.error('Error fetching user data:', error.message);
-          }
-        };
-    
-        fetchUserData();
-      }, [user]);
-   */
-/*
-      useEffect(() => {
-        // Fetch the user's display name and photoURL when the component mounts
-        const fetchUserData = async () => {
-          try {
-            const currentUser = auth.currentUser;
-            if (currentUser) {
-              setDisplayName(currentUser.displayName);
-              setPhotoURL(currentUser.photoURL);
-            }
-          } catch (error) {
-            console.error('Error fetching user data:', error.message);
-          } finally {
-            setLoading(false);
-          }
-        };
-    
-        fetchUserData();
-      }, []);
-*/
 
     // handle user logout
     const handleLogout = async () => {
@@ -95,14 +52,6 @@ function Profile ({ navigation, user }) {
         }
       };
 
-      /*
-      if (loading) {
-        return <View>
-            <Text>Loading</Text>
-        </View>
-      }
-      */
-
     return (
         <Background>
             <View style={styles.container}>
@@ -116,9 +65,6 @@ function Profile ({ navigation, user }) {
                         )}
                     </Pressable>
                     <Button title="Change Profile Image" onPress={handleImagePick} />
-
-                    
-                   
                     <View>
                         <Pressable onPress={handleLogout}>
                             <Text>Logout</Text>
@@ -132,7 +78,7 @@ function Profile ({ navigation, user }) {
                     <View style={styles.bottomItem}>
                         <View style={styles.bottomItemInner}>
                             <Pressable>
-                                <Text style={styles.options_text}>New Post</Text>
+                                <Text style={styles.options_text} onPress={()=> navigation.navigate('NestedNavigator', {screen: 'NewPost'})}>New Post</Text>
                             </Pressable>
                         </View>
                     </View>
