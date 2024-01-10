@@ -78,14 +78,14 @@ function Profile ({ navigation, user }) {
                     <View style={styles.bottomItem}>
                         <View style={styles.bottomItemInner}>
                             <Pressable>
-                                <Text style={styles.options_text} onPress={()=> navigation.navigate('NestedNavigator', {screen: 'NewPost'})}>New Post</Text>
+                                <Text style={styles.options_text} onPress={()=> navigation.navigate('NestedNavigator', {screen: 'NewGoal'})}>New Goal</Text>
                             </Pressable>
                         </View>
                     </View>
                     <View style={styles.bottomItem}>
                         <View style={styles.bottomItemInner}>
                             <Pressable>
-                                <Text style={styles.options_text} onPress={()=> navigation.navigate('NestedNavigator', {screen: 'Posts'})}>View All</Text>
+                                <Text style={styles.options_text} onPress={()=> navigation.navigate('NestedNavigator', {screen: 'Goals'})}>View All</Text>
                             </Pressable>
                         </View>
                     </View>

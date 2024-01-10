@@ -4,22 +4,28 @@ import PrimaryButton from '../Components/common/PrimaryButton';
 import { StatusBar } from 'expo-status-bar';
 import NavigationBar from '../Components/navigation/NavigationBar';
 
-function Posts ({ navigation }) {
+function Goals ({ navigation }) {
     return (
         <Background>
-            <Text style={styles.mainTitle}>All Posts</Text>
+            <Text style={styles.mainTitle}>All Goals</Text>
             <View style={styles.container}>
                 <View style={styles.contentContainer}>
-                    <Text>This is a Post Title</Text>
-                    <Image></Image>
-                    <Text>This is the Post Content</Text>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.title}>Daily Goals</Text>
+                    </View>
+                    <View>
+                        <Text style={styles.title}>Weekly Goals</Text>
+                    </View>
+                    <View>
+                        <Text style={styles.title}>Monthly Goals</Text>
+                    </View>
                 </View>
             </View>
         </Background>
     )
 }
 
-export default Posts;
+export default Goals;
 
 const styles = StyleSheet.create({
     container: {
@@ -34,5 +40,12 @@ const styles = StyleSheet.create({
     contentContainer: {
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    title: {
+        fontSize: 20,
+        color: 'white'
+    },
+    titleContainer: {
+
     }
 })

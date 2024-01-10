@@ -1,9 +1,8 @@
 //import firebase from 'firebase/app';
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+import { getAnalytics } from 'firebase/analytics';
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 const firebaseConfig = {
@@ -21,8 +20,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // initialize the auth module
-//const auth = getAuth(app);
-//const auth = initializeAuth(app, { persistence: 'local', storage: ExpoAsyncStorage });
 const auth = initializeAuth(app, {
     persistence: getReactNativePersistence(ReactNativeAsyncStorage)
   });
@@ -33,7 +30,6 @@ const auth = initializeAuth(app, {
 // initialize firestore
 const db = getFirestore(app);
 
-//console.log('Firebase initialized with the following configuration:', firebaseConfig);
-//console.log('Database URL:', process.env.REACT_APP_databaseURL);
+console.log(db);
 
 export { db, app, auth };

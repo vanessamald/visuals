@@ -10,8 +10,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./services/config";
 import { registerRootComponent } from 'expo';
 import React, { useEffect, useState } from 'react';
-import Posts from './screens/Posts';
-import NewPost from './screens/NewPost';
+import NewGoal from './screens/NewGoal';
+import Goals from './screens/Goals';
 
 export default function App() {
 const Stack = createNativeStackNavigator();
@@ -55,8 +55,8 @@ function NestedNavigator() {
       ) : (
         <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
       )}
-      <Stack.Screen name="NewPost" component={NewPost} />
-      <Stack.Screen name="Posts" component={Posts} />
+      <Stack.Screen name="NewGoal" component={NewGoal} />
+      <Stack.Screen name="Goals" component={Goals} />
     </Stack.Navigator>
   );
 }
